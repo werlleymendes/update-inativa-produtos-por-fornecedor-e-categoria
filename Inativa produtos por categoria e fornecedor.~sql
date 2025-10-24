@@ -16,9 +16,7 @@ SELECT DISTINCT a.seqproduto, a.nroempresa, b.desccompleta
              e.status = 'A' and
              f.nivelhierarquia = 3 and
              f.caminhocompleto LIKE 'PERFUMARIA%' and
-             --criar subquery para excluir produtos que não aparecem para dag ou ibiapina
              d.seqfornecedor not in (1161, 1156) 
-             
              ORDER BY 3
              ;
 
