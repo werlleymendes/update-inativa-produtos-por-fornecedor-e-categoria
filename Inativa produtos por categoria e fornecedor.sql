@@ -17,12 +17,10 @@ SELECT DISTINCT a.seqproduto, a.nroempresa, b.desccompleta
              f.nivelhierarquia = 3 and
              f.caminhocompleto LIKE 'PERFUMARIA%' and
              --criar subquery para excluir produtos que não aparecem para dag ou ibiapina
-             d.seqfornecedor not in (1161, 1156) 
-             
+             d.seqfamilia NOT IN ( SELECT g.seqfamilia FROM consinco.map_famfornec g where g.seqfornecedor in (1161, 1156))
              ORDER BY 3
              ;
 
-SELECT * FROM consinco.map_categoria b where b.nivelhierarquia = 3 and b.caminhocompleto like 'PERFUMARIA%' OR '
 
 
              
@@ -30,3 +28,4 @@ SELECT * FROM consinco.map_categoria b where b.nivelhierarquia = 3 and b.caminho
  
              
 
+SELECT g.seqfamilia FROM consinco.map_famfornec g where g.seqfornecedor in (1161, 1156); 
